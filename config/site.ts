@@ -1,76 +1,54 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "AI算法平台",
-  description: "专业的AI视觉算法平台，提供丰富的算法解决方案",
+  name: "未来通科研",
+  description: "专业的科研论文指导平台，助力学术成长之路",
   mainNav: [
     {
       title: "首页",
       href: "/",
     },
     {
-      title: "算法商城",
-      href: "/marketplace",
+      title: "论文指导",
+      href: "/papers",
       children: [
-        { title: "计算机视觉", href: "/marketplace/vision" },
-        { title: "自然语言处理", href: "/marketplace/nlp" },
-        { title: "语音识别", href: "/marketplace/speech" },
-        { title: "推荐系统", href: "/marketplace/recommendation" },
+        { title: "论文写作", href: "/papers/writing" },
+        { title: "论文发表", href: "/papers/publish" },
+        { title: "论文修改", href: "/papers/revision" },
+        { title: "SCI选刊", href: "/papers/journal" },
       ],
     },
     {
-      title: "核心产品",
-      href: "/products",
+      title: "指导老师",
+      href: "/mentors",
       children: [
-        { title: "AI开放平台", href: "/products/platform" },
-        { title: "AI训练平台", href: "/products/training" },
-        { title: "AI推理平台", href: "/products/inference" },
-        { title: "定制开发服务", href: "/products/custom" },
+        { title: "导师团队", href: "/mentors/team" },
+        { title: "研究方向", href: "/mentors/research" },
+        { title: "预约咨询", href: "/mentors/consult" },
       ],
     },
     {
-      title: "行业方案",
-      href: "/solutions",
+      title: "科研成果",
+      href: "/achievements",
       children: [
-        { title: "智慧城市", href: "/solutions/city" },
-        { title: "智慧工业", href: "/solutions/industry" },
-        { title: "智慧金融", href: "/solutions/finance" },
-        { title: "智慧医疗", href: "/solutions/medical" },
-        { title: "智慧零售", href: "/solutions/retail" },
+        { title: "发表论文", href: "/achievements/papers" },
+        { title: "成功案例", href: "/achievements/cases" },
+        { title: "学员反馈", href: "/achievements/feedback" },
       ],
     },
     {
-      title: "成功案例",
-      href: "/cases",
+      title: "联系我们",
+      href: "/contact",
       children: [
-        { title: "政府项目", href: "/cases/government" },
-        { title: "企业项目", href: "/cases/enterprise" },
-        { title: "创新项目", href: "/cases/innovation" },
-      ],
-    },
-    {
-      title: "资源中心",
-      href: "/resources",
-      children: [
-        { title: "开发文档", href: "/resources/docs" },
-        { title: "API文档", href: "/resources/api" },
-        { title: "SDK下载", href: "/resources/sdk" },
-        { title: "帮助中心", href: "/resources/help" },
-      ],
-    },
-    {
-      title: "关于我们",
-      href: "/about",
-      children: [
-        { title: "公司介绍", href: "/about/company" },
-        { title: "新闻动态", href: "/about/news" },
-        { title: "加入我们", href: "/about/jobs" },
-        { title: "联系我们", href: "/about/contact" },
+        { title: "关于我们", href: "/contact/about" },
+        { title: "加入我们", href: "/contact/join" },
+        { title: "联系方式", href: "/contact/info" },
       ],
     },
   ],
   links: {
-    github: "https://github.com",
-    twitter: "https://twitter.com",
+    wechat: "未来通科研",
+    email: "contact@futureconnect.com",
   },
 }
+

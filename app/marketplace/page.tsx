@@ -5,8 +5,8 @@ import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Search } from "lucide-react"
-import { Metadata } from "next"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
@@ -17,11 +17,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-
-export const metadata: Metadata = {
-  title: "算法商城 | AI算法平台",
-  description: "提供丰富的AI算法解决方案，包括计算机视觉、自然语言处理、语音识别等",
-}
+import { BackgroundGradient } from "@/components/ui/background-gradient"
+import { FloatingCard } from "@/components/ui/floating-card"
 
 // 热门搜索关键词
 const hotSearches = [
@@ -116,7 +113,7 @@ const categories = [
   {
     title: "推荐系统",
     description: "个性化推荐、协同过滤、内容推荐等",
-    image: "/images/marketplace/recommendation.svg",
+    image: "/images/marketplace/recommend.svg",
     href: "/marketplace/recommendation",
     features: [
       "个性化推荐",
@@ -129,58 +126,80 @@ const categories = [
 
 export default function MarketplacePage() {
   const [searchQuery, setSearchQuery] = useState("")
-  const [selectedIndustry, setSelectedIndustry] = useState("全部")
-  const [selectedScene, setSelectedScene] = useState("全部")
 
   return (
-    <div className="container py-8 space-y-8">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold tracking-tighter">算法商城</h1>
-        <p className="text-xl text-muted-foreground max-w-[800px] mx-auto">
-          提供丰富的AI算法解决方案，助力企业数字化转型
-        </p>
-      </div>
+    <>
+      <BackgroundGradient />
+      <div className="container py-8 space-y-8">
+        <div className="text-center space-y-4">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl font-bold tracking-tighter"
+          >
+            算法商城
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl text-muted-foreground max-w-[800px] mx-auto"
+          >
+            提供丰富的AI算法解决方案，助力企业数字化转型
+          </motion.p>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {categories.map((category) => (
-          <Card key={category.title} className="flex flex-col">
-            <CardHeader>
-              <div className="w-full h-48 relative mb-4">
-                <Image
-                  src={category.image}
-                  alt={category.title}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <CardTitle className="text-2xl">{category.title}</CardTitle>
-              <CardDescription className="text-base">
-                {category.description}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex-1">
-              <ul className="list-disc list-inside space-y-2">
-                {category.features.map((feature) => (
-                  <li key={feature} className="text-muted-foreground">
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-            <div className="p-6 pt-0 mt-auto">
-              <Link
-                href={category.href}
-                className={cn(
-                  buttonVariants({ variant: "default" }),
-                  "w-full"
-                )}
-              >
-                了解更多
-              </Link>
-            </div>
-          </Card>
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {categories.map((category, index) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <FloatingCard>
+                <Card className="flex flex-col h-full backdrop-blur-sm bg-white/50">
+                  <CardHeader>
+                    <div className="w-full h-48 relative mb-4">
+                      <Image
+                        src={category.image}
+                        alt={category.title}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <CardTitle className="text-2xl">{category.title}</CardTitle>
+                    <CardDescription className="text-base">
+                      {category.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-1">
+                    <ul className="list-disc list-inside space-y-2">
+                      {category.features.map((feature) => (
+                        <li key={feature} className="text-muted-foreground">
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  <div className="p-6 pt-0 mt-auto">
+                    <Link
+                      href={category.href}
+                      className={cn(
+                        buttonVariants({ variant: "default" }),
+                        "w-full rounded-full"
+                      )}
+                    >
+                      了解更多
+                    </Link>
+                  </div>
+                </Card>
+              </FloatingCard>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   )
 } 

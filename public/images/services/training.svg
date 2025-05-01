@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>学术培训</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12,3 L21,8 L21,10 L19,10 L19,16 C19.5523,16 20,16.4477 20,17 C20,17.5523 19.5523,18 19,18 L18.999,18 C18.999,18.5523 18.5513,19 17.999,19 L5.99902,19 C5.44674,19 4.99902,18.5523 4.99902,18 L5,18 C4.44772,18 4,17.5523 4,17 C4,16.4477 4.44772,16 5,16 L5,10 L3,10 L3,8 L12,3 Z M17,10 L7,10 L7,16 L17,16 L17,10 Z M11,11 L13,11 L13,13 L11,13 L11,11 Z" fill="#4F46E5"/>
+    </g>
+</svg> 

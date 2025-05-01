@@ -4,183 +4,237 @@ import { motion } from 'framer-motion'
 import { useToast } from "@/hooks/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 import { Carousel } from "@/components/ui/carousel"
-import { Metadata } from "next"
 import Image from "next/image"
+import React from 'react'
 
 import { siteConfig } from '@/config/site'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from "@/lib/utils"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { BackgroundGradient } from '@/components/ui/background-gradient'
+import { FloatingCard } from '@/components/ui/floating-card'
 
-export const metadata: Metadata = {
-  title: "AI算法平台 - 专业的AI视觉算法解决方案提供商",
-  description: "提供丰富的AI算法解决方案，覆盖计算机视觉、自然语言处理、语音识别等多个领域",
+interface Feature {
+  title: string;
+  description: string;
+  icon: string;
 }
 
-const features = [
+interface Service {
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+}
+
+const features: Feature[] = [
   {
-    title: "丰富的算法库",
-    description: "提供1000+成熟算法，覆盖50+行业场景",
+    title: "专业导师团队",
+    description: "汇聚海内外知名高校博士及教授，提供一对一指导",
+    icon: "👨‍🏫",
+  },
+  {
+    title: "全程论文指导",
+    description: "从选题到发表，提供全流程专业指导服务",
+    icon: "📝",
+  },
+  {
+    title: "SCI期刊发表",
+    description: "协助选择合适期刊，提高论文发表成功率",
     icon: "📊",
   },
   {
-    title: "快速部署",
-    description: "标准API接口，支持快速集成和部署",
+    title: "快速响应",
+    description: "24小时在线咨询，专业团队及时解答",
     icon: "⚡",
-  },
-  {
-    title: "高准确率",
-    description: "算法平均准确率超过95%",
-    icon: "🎯",
-  },
-  {
-    title: "专业服务",
-    description: "7x24小时技术支持，快速响应",
-    icon: "💡",
   },
 ]
 
-const industries = [
+const services: Service[] = [
   {
-    title: "智慧城市",
-    description: "城市管理、交通监控、公共安全",
-    image: "/images/industries/city.svg",
-    href: "/solutions/city",
+    title: "论文写作指导",
+    description: "提供选题建议、研究方法指导、写作技巧培训",
+    image: "/images/services/writing.svg",
+    href: "/papers/writing",
   },
   {
-    title: "智慧工业",
-    description: "生产监控、质量检测、安全管理",
-    image: "/images/industries/industry.svg",
-    href: "/solutions/industry",
+    title: "论文修改服务",
+    description: "语言润色、逻辑优化、格式规范调整",
+    image: "/images/services/revision.svg",
+    href: "/papers/revision",
   },
   {
-    title: "智慧金融",
-    description: "身份认证、风险控制、智能客服",
-    image: "/images/industries/finance.svg",
-    href: "/solutions/finance",
+    title: "期刊投稿咨询",
+    description: "SCI期刊推荐、投稿策略指导、返修意见解析",
+    image: "/images/services/publish.svg",
+    href: "/papers/publish",
   },
   {
-    title: "智慧医疗",
-    description: "影像诊断、智能导诊、健康管理",
-    image: "/images/industries/medical.svg",
-    href: "/solutions/medical",
+    title: "学术能力提升",
+    description: "科研方法培训、文献阅读技巧、学术写作能力培养",
+    image: "/images/services/training.svg",
+    href: "/papers/training",
   },
 ]
 
 export default function HomePage() {
   const { toast } = useToast()
 
-  const slides = [
-    {
-      image: "/img/background.jpg",
-      title: "AI视觉算法商城",
-      description: "累计成熟图像识别/视频分析算法1500+，覆盖行业100+，落地项目500+"
-    },
-    {
-      image: "/img/background.jpg",
-      title: "算法定制服务",
-      description: "全新行业算法定制仅需8-12周，助力'AI+全场景'落地"
-    },
-    {
-      image: "/img/background.jpg",
-      title: "专业解决方案",
-      description: "提供专业的AI视觉算法解决方案，满足各行业需求"
-    }
-  ]
-
-  const categories = siteConfig.mainNav
-    .find(item => item.title === "算法商城")
-    ?.children || []
-
   return (
-    <div className="flex flex-col gap-8">
-      {/* Hero Section */}
-      <section className="container flex flex-col items-center gap-4 py-12 text-center md:py-24">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-          专业的AI算法平台
-        </h1>
-        <p className="max-w-[700px] text-muted-foreground md:text-xl">
-          提供丰富的AI算法解决方案，助力企业数字化转型
-        </p>
-        <div className="flex gap-4">
-          <Link
-            href="/marketplace"
-            className={cn(buttonVariants({ size: "lg" }))}
+    <>
+      <BackgroundGradient />
+      <div className="flex flex-col gap-8">
+        {/* Hero Section */}
+        <section className="container flex flex-col items-center gap-4 py-24 md:py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            进入算法商城
-          </Link>
-          <Link
-            href="/contact"
-            className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
+            <h1 className="text-center text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+              您的
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                科研成长助手
+              </span>
+            </h1>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="max-w-[700px] text-center text-muted-foreground md:text-xl"
           >
-            联系我们
-          </Link>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="container py-12">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature) => (
-            <Card key={feature.title}>
-              <CardHeader>
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <CardTitle>{feature.title}</CardTitle>
-                <CardDescription>{feature.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Industries Section */}
-      <section className="container py-12">
-        <h2 className="text-3xl font-bold tracking-tighter text-center mb-8">
-          行业解决方案
-        </h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {industries.map((industry) => (
-            <Link key={industry.title} href={industry.href}>
-              <Card className="h-full transition-all hover:shadow-lg">
-                <CardHeader>
-                  <div className="relative h-40 w-full mb-4">
-                    <Image
-                      src={industry.image}
-                      alt={industry.title}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <CardTitle>{industry.title}</CardTitle>
-                  <CardDescription>{industry.description}</CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="container py-12">
-        <Card className="bg-primary text-primary-foreground">
-          <CardContent className="flex flex-col items-center gap-4 py-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter">
-              立即开始使用我们的AI算法
-            </h2>
-            <p className="max-w-[600px] text-primary-foreground/80">
-              提供免费试用，快速接入，专业的技术支持团队随时为您服务
-            </p>
+            专业的论文指导服务，助您在学术道路上更进一步
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex gap-4"
+          >
             <Link
-              href="/contact"
-              className={cn(
-                buttonVariants({ variant: "secondary", size: "lg" })
-              )}
+              href="/papers/writing"
+              className={cn(buttonVariants({ size: "lg" }), "rounded-full")}
             >
-              申请试用
+              开始写作指导
             </Link>
-          </CardContent>
-        </Card>
-      </section>
-    </div>
+            <Link
+              href="/contact/consult"
+              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-full")}
+            >
+              预约咨询
+            </Link>
+          </motion.div>
+        </section>
+
+        {/* Features Section */}
+        <section className="container py-12 md:py-24">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <FloatingCard>
+                  <Card className="h-full backdrop-blur-sm bg-white/50">
+                    <CardHeader>
+                      <div className="text-4xl mb-4">{feature.icon}</div>
+                      <CardTitle>{feature.title}</CardTitle>
+                      <CardDescription>{feature.description}</CardDescription>
+                    </CardHeader>
+                  </Card>
+                </FloatingCard>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="container py-12 md:py-24">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl font-bold tracking-tighter text-center mb-12"
+          >
+            我们的服务
+          </motion.h2>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Link href={service.href}>
+                  <FloatingCard>
+                    <Card className="h-full transition-all hover:shadow-lg backdrop-blur-sm bg-white/50">
+                      <CardHeader>
+                        <div className="relative h-40 w-full mb-4">
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                        <CardTitle>{service.title}</CardTitle>
+                        <CardDescription>{service.description}</CardDescription>
+                      </CardHeader>
+                    </Card>
+                  </FloatingCard>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="container py-12 md:py-24">
+          <FloatingCard>
+            <Card className="bg-gradient-to-r from-primary/90 to-secondary/90 text-primary-foreground backdrop-blur-sm">
+              <CardContent className="flex flex-col items-center gap-4 py-12 text-center">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-3xl font-bold tracking-tighter"
+                >
+                  开启您的学术成长之旅
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="max-w-[600px] text-primary-foreground/80"
+                >
+                  专业的导师团队随时待命，为您的科研之路保驾护航
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="flex gap-4"
+                >
+                  <Link
+                    href="/contact/consult"
+                    className={cn(
+                      buttonVariants({ variant: "secondary", size: "lg" }),
+                      "rounded-full"
+                    )}
+                  >
+                    立即咨询
+                  </Link>
+                </motion.div>
+              </CardContent>
+            </Card>
+          </FloatingCard>
+        </section>
+      </div>
+      <Toaster />
+    </>
   )
 }
