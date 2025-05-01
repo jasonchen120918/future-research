@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" version="1.1" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+ <rect width="400" height="300" fill="#f3e8ff"/>
+ <g fill="#9333ea">
+  <path d="M120,260 L120,180 L160,180 L160,260 Z"/>
+  <path d="M180,260 L180,140 L220,140 L220,260 Z"/>
+  <path d="M240,260 L240,160 L280,160 L280,260 Z"/>
+  <path d="M140,160 C140,120 200,120 200,160 C200,120 260,120 260,160" 
+        stroke="#9333ea" 
+        stroke-width="4" 
+        fill="none"/>
+  <circle cx="140" cy="160" r="6"/>
+  <circle cx="200" cy="160" r="6"/>
+  <circle cx="260" cy="160" r="6"/>
+  <path d="M160,200 L180,220 L200,180 L220,210 L240,190" 
+        stroke="#9333ea" 
+        stroke-width="2" 
+        fill="none"/>
+ </g>
+ <text x="200" y="80" text-anchor="middle" fill="#7e22ce" font-family="Arial" font-size="24" font-weight="bold">
+  智慧零售
+ </text>
+</svg> 

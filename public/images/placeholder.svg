@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" version="1.1" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+ <rect width="400" height="300" fill="#f0f0f0"/>
+ <g fill="#999">
+  <path d="m181.54 131.46v37.075h36.925v-37.075zm34.725 34.875h-32.525v-32.675h32.525z"/>
+  <path d="m194.27 144.19 8.6289 11.337 4.0723-4.0723 10.829 10.829h-32.525l13.629-13.629z"/>
+  <circle cx="201.5" cy="150" r="3.7"/>
+ </g>
+ <text x="200" y="170" text-anchor="middle" fill="#666" font-family="Arial" font-size="14">
+  Placeholder Image
+ </text>
+</svg> 

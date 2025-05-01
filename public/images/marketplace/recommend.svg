@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" version="1.1" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+ <rect width="400" height="300" fill="#fef2f2"/>
+ <g fill="#ef4444">
+  <circle cx="200" cy="150" r="80"/>
+  <circle cx="200" cy="150" r="60" fill="#fee2e2"/>
+  <path d="M200,90 L200,210" stroke="#ef4444" stroke-width="4"/>
+  <path d="M140,150 L260,150" stroke="#ef4444" stroke-width="4"/>
+  <path d="M160,120 L240,180" stroke="#ef4444" stroke-width="4"/>
+  <path d="M160,180 L240,120" stroke="#ef4444" stroke-width="4"/>
+  <circle cx="200" cy="150" r="20" fill="#ef4444"/>
+ </g>
+ <text x="200" y="80" text-anchor="middle" fill="#b91c1c" font-family="Arial" font-size="24" font-weight="bold">
+  推荐系统
+ </text>
+</svg> 

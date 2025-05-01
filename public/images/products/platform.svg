@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" version="1.1" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+ <rect width="400" height="300" fill="#e6f3ff"/>
+ <g fill="#2563eb">
+  <rect x="100" y="100" width="60" height="60" rx="8"/>
+  <rect x="170" y="100" width="60" height="60" rx="8"/>
+  <rect x="240" y="100" width="60" height="60" rx="8"/>
+  <rect x="100" y="170" width="60" height="60" rx="8"/>
+  <rect x="170" y="170" width="60" height="60" rx="8"/>
+  <rect x="240" y="170" width="60" height="60" rx="8"/>
+ </g>
+ <text x="200" y="80" text-anchor="middle" fill="#1e40af" font-family="Arial" font-size="24" font-weight="bold">
+  AI开放平台
+ </text>
+</svg> 

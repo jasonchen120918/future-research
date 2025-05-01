@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" version="1.1" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+ <rect width="400" height="300" fill="#e6f3ff"/>
+ <g fill="#2563eb">
+  <circle cx="200" cy="150" r="60"/>
+  <path d="M180,120 L220,120 L220,180 L180,180 Z" fill="#e6f3ff"/>
+  <path d="M160,150 L240,150 L240,150 L160,150 Z" fill="#e6f3ff"/>
+  <circle cx="200" cy="150" r="20" fill="#2563eb"/>
+  <path d="M140,200 L180,160 L220,200 L260,160" 
+        stroke="#2563eb" 
+        stroke-width="4" 
+        fill="none"/>
+ </g>
+ <text x="200" y="260" text-anchor="middle" fill="#1d4ed8" font-family="Arial" font-size="24" font-weight="bold">
+  计算机视觉
+ </text>
+</svg> 
