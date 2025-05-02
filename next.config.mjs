@@ -1,16 +1,10 @@
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
   },
-  basePath: '/future-research',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
 };
-
-if (process.env.NODE_ENV === 'development') {
-  await setupDevPlatform();
-}
 
 export default nextConfig;
