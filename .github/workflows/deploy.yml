@@ -37,7 +37,8 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          npm list next
+          echo "Installed dependencies:"
+          npm list --depth=0
         
       - name: Build with Next.js
         env:
@@ -46,7 +47,15 @@ jobs:
           echo "Building with NEXT_PUBLIC_BASE_PATH=$NEXT_PUBLIC_BASE_PATH"
           npm run build
           touch out/.nojekyll
+          echo "Build output contents:"
           ls -la out/
+          echo "Checking for build errors:"
+          if [ -f "out/404.html" ]; then
+            echo "404 page exists - build successful"
+          else
+            echo "404 page missing - build may have failed"
+            exit 1
+          fi
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
