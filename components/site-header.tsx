@@ -8,40 +8,34 @@ import { ThemeToggle } from '@/components/theme-toggle'
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
             <Link
-              href={siteConfig.links.github}
+              href={siteConfig.links.wechat}
               target="_blank"
               rel="noreferrer"
+              className={buttonVariants({
+                size: 'icon',
+                variant: 'ghost',
+              })}
             >
-              <div
-                className={buttonVariants({
-                  size: 'icon',
-                  variant: 'ghost',
-                })}
-              >
-                <Icons.gitHub className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </div>
+              <Icons.wechat className="h-5 w-5" />
+              <span className="sr-only">微信</span>
             </Link>
             <Link
-              href={siteConfig.links.twitter}
+              href={`mailto:${siteConfig.links.email}`}
               target="_blank"
               rel="noreferrer"
+              className={buttonVariants({
+                size: 'icon',
+                variant: 'ghost',
+              })}
             >
-              <div
-                className={buttonVariants({
-                  size: 'icon',
-                  variant: 'ghost',
-                })}
-              >
-                <Icons.twitter className="size-5" />
-                <span className="sr-only">Twitter</span>
-              </div>
+              <Icons.mail className="h-5 w-5" />
+              <span className="sr-only">邮箱</span>
             </Link>
             <ThemeToggle />
           </nav>
