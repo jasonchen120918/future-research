@@ -73,56 +73,39 @@ const algorithms = [
   }
 ]
 
-const categories = [
+interface Category {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const categories: Category[] = [
   {
+    id: "computer-vision",
     title: "计算机视觉",
-    description: "图像识别、目标检测、人脸识别等",
-    image: "/images/marketplace/vision.svg",
-    href: "/marketplace/vision",
-    features: [
-      "图像分类",
-      "目标检测",
-      "人脸识别",
-      "OCR文字识别",
-    ],
+    description: "图像识别、目标检测、场景分析等视觉AI解决方案",
+    icon: "/icons/vision.svg"
   },
   {
+    id: "nlp",
     title: "自然语言处理",
-    description: "文本分类、情感分析、机器翻译等",
-    image: "/images/marketplace/nlp.svg",
-    href: "/marketplace/nlp",
-    features: [
-      "文本分类",
-      "情感分析",
-      "机器翻译",
-      "智能问答",
-    ],
+    description: "文本分类、情感分析、命名实体识别等NLP解决方案",
+    icon: "/icons/nlp.svg"
   },
   {
-    title: "语音识别",
-    description: "语音转文字、语音合成、声纹识别等",
-    image: "/images/marketplace/speech.svg",
-    href: "/marketplace/speech",
-    features: [
-      "语音转文字",
-      "语音合成",
-      "声纹识别",
-      "语音情感分析",
-    ],
+    id: "speech",
+    title: "语音技术",
+    description: "语音识别、语音合成、声纹识别等语音AI解决方案",
+    icon: "/icons/speech.svg"
   },
   {
-    title: "推荐系统",
-    description: "个性化推荐、协同过滤、内容推荐等",
-    image: "/images/marketplace/recommend.svg",
-    href: "/marketplace/recommendation",
-    features: [
-      "个性化推荐",
-      "协同过滤",
-      "内容推荐",
-      "实时推荐",
-    ],
-  },
-]
+    id: "multimodal",
+    title: "多模态技术",
+    description: "图文理解、视频分析、跨模态检索等多模态解决方案",
+    icon: "/icons/multimodal.svg"
+  }
+];
 
 export default function MarketplacePage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -130,76 +113,38 @@ export default function MarketplacePage() {
   return (
     <>
       <BackgroundGradient />
-      <div className="container py-8 space-y-8">
-        <div className="text-center space-y-4">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl font-bold tracking-tighter"
-          >
-            算法商城
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-muted-foreground max-w-[800px] mx-auto"
-          >
-            提供丰富的AI算法解决方案，助力企业数字化转型
-          </motion.p>
-        </div>
+      <main className="flex-1">
+        <div className="container py-8 space-y-8">
+          <div className="text-center space-y-4">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+              算法商城
+            </h1>
+            <p className="max-w-[600px] text-zinc-200 md:text-xl dark:text-zinc-100 mx-auto">
+              提供丰富的AI算法解决方案，包括计算机视觉、自然语言处理、语音识别等
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {categories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <FloatingCard>
-                <Card className="flex flex-col h-full backdrop-blur-sm bg-white/50">
-                  <CardHeader>
-                    <div className="w-full h-48 relative mb-4">
-                      <Image
-                        src={category.image}
-                        alt={category.title}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <CardTitle className="text-2xl">{category.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {category.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-1">
-                    <ul className="list-disc list-inside space-y-2">
-                      {category.features.map((feature) => (
-                        <li key={feature} className="text-muted-foreground">
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                  <div className="p-6 pt-0 mt-auto">
-                    <Link
-                      href={category.href}
-                      className={cn(
-                        buttonVariants({ variant: "default" }),
-                        "w-full rounded-full"
-                      )}
-                    >
-                      了解更多
-                    </Link>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {categories.map((category) => (
+              <Link key={category.title} href={`/marketplace/${category.id}`}>
+                <FloatingCard className="p-4 h-full">
+                  <div className="flex flex-col items-center text-center gap-2 h-full">
+                    <Image
+                      src={category.icon}
+                      alt={category.title}
+                      width={64}
+                      height={64}
+                      className="w-16 h-16"
+                    />
+                    <h3 className="text-lg font-semibold">{category.title}</h3>
+                    <p className="text-sm text-muted-foreground">{category.description}</p>
                   </div>
-                </Card>
-              </FloatingCard>
-            </motion.div>
-          ))}
+                </FloatingCard>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      </main>
     </>
   )
 } 
