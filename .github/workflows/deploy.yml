@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["master"]
+    branches: ["main", "master"]
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -36,7 +36,7 @@ jobs:
         
       - name: Install dependencies
         run: |
-          npm install
+          npm ci
           npm list next
         
       - name: Build with Next.js
@@ -45,6 +45,7 @@ jobs:
         run: |
           echo "Building with NEXT_PUBLIC_BASE_PATH=$NEXT_PUBLIC_BASE_PATH"
           npm run build
+          touch out/.nojekyll
           ls -la out/
         
       - name: Upload artifact
