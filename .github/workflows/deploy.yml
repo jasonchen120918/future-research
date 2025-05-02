@@ -36,7 +36,7 @@ jobs:
         
       - name: Install dependencies
         run: |
-          npm ci
+          npm install
           npm list next
         
       - name: Build with Next.js
